@@ -6,6 +6,8 @@ import java.util.Date;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Document(collection = "employee")
 public class Employee {
     @Id // this sets up the Spring Data for MongoDB automatic ID conversion
@@ -16,6 +18,7 @@ public class Employee {
     private String emailAddress;
     private String phoneNumber;
     private EmpPosCatType positionCategory;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")    
     private Date dateHired;
     private String address1;
     private String address2;
